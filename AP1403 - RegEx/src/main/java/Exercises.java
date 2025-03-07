@@ -9,7 +9,7 @@ public class Exercises {
         complete the method below, so it will validate an email address
      */
     public boolean validateEmail(String email) {
-        String regex = ""; // todo
+        String regex = "^[a-zA-Z0-9._%+-]+(?<!\\.)@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"; // todo
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(email);
 
