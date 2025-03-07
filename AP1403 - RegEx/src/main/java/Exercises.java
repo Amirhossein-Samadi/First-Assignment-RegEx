@@ -59,8 +59,22 @@ public class Exercises {
      */
     public List<String> findPalindromes(String string) {
         List<String> list = new ArrayList<>();
-        // todo
+        String regex = "\\b[a-zA-Z]{3,}\\b"; // Match words with at least 3 letters
+
+        Pattern pattern = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(string);
+
+        while (matcher.find()) {
+            String word = matcher.group();
+            if (isPalindrome(word)) {
+                list.add(word);
+            }
+        }
         return list;
+    }
+    private boolean isPalindrome(String word) {
+        word = word.toLowerCase();
+        return new StringBuilder(word).reverse().toString().equals(word);
     }
 
     public static void main(String[] args) {
