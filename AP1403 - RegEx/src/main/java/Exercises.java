@@ -22,8 +22,11 @@ public class Exercises {
         if there's no match for a date, return null
      */
     public String findDate(String string) {
-        // todo
-        return null;
+        String regex = "\\b([0,1,2]\\d|3[0,1]|\\d{4})\\/(\\d{2})\\/(\\d{2,4})\\b|\\b(\\d{4})-(\\d{2})-(\\d{2})\\b";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(string);
+
+        return matcher.find() ? matcher.group() : null;
     }
 
     /*
